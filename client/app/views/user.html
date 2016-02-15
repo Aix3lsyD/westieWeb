@@ -1,0 +1,61 @@
+<div>
+<h3>{{user.dancer['full_name']}} </h3>
+
+  <uib-tabset>
+    <uib-tab heading="Leader">
+
+      <div class row>
+        <table class="table table-striped" ng-repeat="division in user.dancer.results[0].divisions">
+          <caption style="font-weight:bold;font-style:italic;">{{division.name}}</caption>
+          <thead>
+          <tr>
+            <th>Event</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Result</th>
+            <th>Points</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="lplacement in division.leader_placements">
+            <td width="30%">{{lplacement.name}}</td>
+            <td width="30%">{{lplacement.location}}</td>
+            <td width="20%">{{lplacement.start_date | limitTo: 10 }}</td>
+            <td width="10%">{{lplacement.result}}</td>
+            <td width="10%">{{lplacement.points}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </uib-tab>
+    <uib-tab heading="Follower">
+       <div class row>
+        <table class="table table-striped" ng-repeat="division in user.dancer.results[0].divisions">
+          <caption style="font-weight:bold;font-style:italic;">{{division.name}}</caption>
+          <thead>
+          <tr>
+            <th>Event</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Result</th>
+            <th>Points</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="lplacement in division.follower_placements">
+            <td width="30%">{{lplacement.name}}</td>
+            <td width="30%">{{lplacement.location}}</td>
+            <td width="20%">{{lplacement.start_date}}</td>
+            <td width="10%">{{lplacement.result}}</td>
+            <td width="10%">{{lplacement.points}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </uib-tab>
+
+
+  </uib-tabset>
+
+</div>

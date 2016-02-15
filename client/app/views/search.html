@@ -1,0 +1,24 @@
+<div>
+
+  <!--<form class="form-horizontal">-->
+      <!--<input type="text" ng-model="search.wcsID">-->
+      <!--<button class="btn" ui-sref="user({id:search.wcsID})"><i class="glyphicon-search"></i>Search</button>-->
+  <!--</form>-->
+
+
+  <h4>Points Search</h4>
+  <!--<pre>Model: {{search.asyncSelected | json}}</pre>-->
+  <div class="input-group">
+  <input type="text" ng-model="search.wcsID" placeholder="Search for a Westie..." uib-typeahead="westie as westie.label for westie in search.getWestie($viewValue)" typeahead-on-select="search.setWestie($item)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
+   <span class="input-group-btn">
+    <button class="btn btn-default" ui-sref="user({id:search.wcsID.value})"><i class="glyphicon-search"></i>Search</button>
+   </span>
+  </div>
+  <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+  <div ng-show="noResults">
+    <i class="glyphicon glyphicon-remove"></i> No Results Found
+  </div>
+
+  <br><br>
+
+</div>
