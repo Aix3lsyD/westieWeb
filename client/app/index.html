@@ -43,8 +43,9 @@
               <li ui-sref-active="active"><a ui-sref="about">About</a></li>
               <li ui-sref-active="active"><a ui-sref="events">Events</a></li>
               <li ui-sref-active="active"><a ui-sref="points">Points</a></li>
+              <li ng-if="main1.isLoggedIn()" ui-sref-active="active"><a ui-sref="viewDances">My WCS</a> </li>
             </ul>
-            <ul ng-show="!main1.isLoggedIn()" class="nav navbar-nav navbar-right">
+            <ul ng-if="!main1.isLoggedIn()" class="nav navbar-nav navbar-right">
               <li><p class="navbar-text">Already have an account?</p></li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
@@ -62,7 +63,7 @@
                 </ul>
               </li>
             </ul>
-               <ul ng-show="main1.isLoggedIn()" class="nav navbar-nav navbar-right">
+               <ul ng-if="main1.isLoggedIn()" class="nav navbar-nav navbar-right">
               <li><p class="navbar-text">Welcome!</p></li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown"><b>{{main1.profileInfo.displayName}}</b> <span class="caret"></span></a>
@@ -132,18 +133,22 @@
         <script src="scripts/services/userService.js"></script>
         <script src="scripts/services/eventsService.js"></script>
         <script src="scripts/services/authService.js"></script>
+        <script src="scripts/services/highlightService.js"></script>
+        <script src="scripts/directives/directives.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/search.js"></script>
         <script src="scripts/controllers/user.js"></script>
         <script src="scripts/controllers/events.js"></script>
+        <script src="scripts/controllers/addHighlightCtrl.js"></script>
+        <script src="scripts/controllers/viewHighlightsCtrl.js"></script>
         <!-- <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script> -->
         <!-- AngularFire -->
 
         <!-- <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script> -->
 
-        
+
 
 
         <!-- endbuild -->

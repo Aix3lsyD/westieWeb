@@ -1,4 +1,4 @@
-<div>
+<div class="points">
 <h3>{{user.dancer['full_name']}} </h3>
 
   <uib-tabset>
@@ -17,12 +17,16 @@
           </tr>
           </thead>
           <tbody>
-          <tr ng-repeat="lplacement in division.leader_placements">
+          <tr ng-repeat="lplacement in division.leader_placements" ng-click="user.setSelected($index, 'Leader', division.name)" ng-class="{selected: user.isSelected($index, 'Leader', division.name)}">
             <td width="30%">{{lplacement.name}}</td>
             <td width="30%">{{lplacement.location}}</td>
             <td width="20%">{{lplacement.start_date | limitTo: 10 }}</td>
             <td width="10%">{{lplacement.result}}</td>
-            <td width="10%">{{lplacement.points}}</td>
+            <td width="5%">{{lplacement.points}}</td>
+            <td width="5%"><button ng-click="user.addHighlight(division.name,lplacement.name, lplacement.result)" ng-show="user.isSelected($index, 'Leader', division.name) && user.userLoggedIn()" type="button" class="btn btn-xs btn-info">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </td>
           </tr>
           </tbody>
         </table>
@@ -30,7 +34,7 @@
     </uib-tab>
     <uib-tab heading="Follower">
        <div class row>
-        <table class="table table-striped" ng-repeat="division in user.dancer.results[0].divisions">
+        <table class="table table-striped" ng-repeat="division in user.dancer.results[0].divisions" ng-click="user.setSelected(lplacement.id, 'Follower', division.name) && user.userLoggedIn()">
           <caption style="font-weight:bold;font-style:italic;">{{division.name}}</caption>
           <thead>
           <tr>
@@ -47,7 +51,11 @@
             <td width="30%">{{lplacement.location}}</td>
             <td width="20%">{{lplacement.start_date}}</td>
             <td width="10%">{{lplacement.result}}</td>
-            <td width="10%">{{lplacement.points}}</td>
+            <td width="5%">{{lplacement.points}}</td>
+            <td width="5%"><button ng-show="user.isSelected($index, 'Leader', division.name)" type="button" class="btn btn-xs btn-info">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </td>
           </tr>
           </tbody>
         </table>

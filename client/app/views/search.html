@@ -9,9 +9,9 @@
   <h4>Points Search</h4>
   <!--<pre>Model: {{search.asyncSelected | json}}</pre>-->
   <div class="input-group">
-  <input type="text" ng-model="search.wcsID" placeholder="Search for a Westie..." uib-typeahead="westie as westie.label for westie in search.getWestie($viewValue)" typeahead-on-select="search.setWestie($item)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
+  <input type="text" ng-model="search.wcsID" placeholder="Search for a Westie..." uib-typeahead="westie as westie.label for westie in search.getWestie($viewValue)" typeahead-on-select="search.setWestie($item)" typeahead-min-length="3" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
    <span class="input-group-btn">
-    <button class="btn btn-default" ui-sref="user({id:search.wcsID.value})"><i class="glyphicon-search"></i>Search</button>
+    <button class="btn btn-default" ui-sref="user({id:search.wcsID.value})"><i class="glyphicon glyphicon-search"></i> Search</button>
    </span>
   </div>
   <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>

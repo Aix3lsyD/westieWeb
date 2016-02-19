@@ -88,6 +88,25 @@ angular
           templateUrl: 'views/events.html',
           controller: 'EventsCtrl',
           controllerAs: 'events'
-        });
+        })
+      .state('viewDances',
+        {
+          url: '/dance/add',
+          templateUrl: 'views/viewDances.html',
+          controller: 'viewHighlightsCtrl',
+          controllerAs: 'viewHighlights'
+
+        })
+      .state('addPlacement',
+        {
+          url: '/myWCS/addPlacement',
+          templateUrl: 'views/addPlacement.html',
+          controller: 'AddPlacementCtrl',
+          controllerAs: 'placement',
+          params: {
+            data:null
+          }
+        }
+      );
 
 }).constant("FIREBASE_URL", "https://westie.firebaseio.com");

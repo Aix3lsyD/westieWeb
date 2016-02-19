@@ -1,0 +1,86 @@
+<form class="form-horizontal" ng-submit="placement.saveHighlight()" name="userForm" novalidate>
+  <fieldset>
+
+    <!-- Form Name -->
+    <legend>Add Highlight</legend>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="selectbasic">Division</label>
+      <div class="col-md-4">
+        <select ng-model = "placement.division" id="selectbasic" name="selectDivision" class="form-control" required>
+          <option value="1">Jack and Jill</option>
+          <option value="2">Strictly Swing</option>
+          <option value="3">Classic</option>
+          <option value="4">Rising Star</option>
+          <option value="5">Exhibition/Demo</option>
+          <option value="6">Masters</option>
+        </select>
+      </div>
+      <p ng-show="userForm.selectDivision.$invalid && !userForm.selectDivision.$pristine" class="help-block">A Division is required.</p>
+    </div>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="placementSelect">Placement</label>
+      <div class="col-md-2">
+        <select ng-model = "placement.placement" id="placementSelect" name="placementSelect" class="form-control" required >
+          <option value="1">1st</option>
+          <option value="2">2nd</option>
+          <option value="3">3rd</option>
+          <option value="4">4th</option>
+          <option value="5">5th</option>
+          <option value="6">N/A</option>
+        </select>
+      </div>
+      <p ng-show="userForm.placementSelect.$invalid && !userForm.placementSelect.$pristine" class="help-block">A Placement is required.</p>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Partner</label>
+      <div class="col-md-5">
+        <input ng-model = "placement.partner" id="textinput" name="parterInput" type="text" placeholder="Partner" class="form-control input-md">
+        <p ng-show="userForm.parterInput.$invalid && !userForm.parterInput.$pristine" class="help-block">A Division is required.</p>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="eventinput">Event Name</label>
+      <div class="col-md-5">
+        <input ng-model = "placement.event" id="eventinput" name="eventInput" type="text" placeholder="WCS Event" class="form-control input-md" required>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="videolink">Video Link</label>
+      <div class="col-md-5">
+        <input ng-model = "placement.video" id="videolink" name="videolink" type="text" placeholder="YouTube Link..." class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="securitySelect">Security</label>
+      <div class="col-md-2">
+        <select ng-model = "placement.security" id="securitySelect" name="securitySelect" class="form-control" required>
+          <option value="1">Public</option>
+          <option value="2">Private</option>
+        </select>
+      </div>
+    </div>
+
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="submit"></label>
+      <div class="col-md-4">
+        <button type="submit" name="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Save</button>
+      </div>
+    </div>
+
+  </fieldset>
+</form>

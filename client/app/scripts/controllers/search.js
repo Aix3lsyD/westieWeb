@@ -10,8 +10,6 @@
 angular.module('clientApp')
   .controller('SearchCtrl', function ($http) {
 
-    var selectedUser = null;
-
     this.getWestie = function(val){
 
 
