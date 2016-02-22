@@ -1,3 +1,5 @@
+
+
 <div class="points">
 <h3>{{user.dancer['full_name']}} </h3>
 
@@ -6,7 +8,8 @@
 
       <div class row>
         <table class="table table-striped" ng-repeat="division in user.dancer.results[0].divisions">
-          <caption style="font-weight:bold;font-style:italic;">{{division.name}}</caption>
+          <caption style="font-weight:bold;font-style:italic;">{{division.name}} - {{division.leader_points}} points</caption>
+          <caption ng-show="division.leaderRunningPoints" style="font-weight:bold;font-style:italic;">All-Star Qualifying - {{division.leaderRunningPoints}} points</caption>
           <thead>
           <tr>
             <th>Event</th>
@@ -32,10 +35,11 @@
         </table>
       </div>
     </uib-tab>
-    <uib-tab heading="Follower">
+    <uib-tab heading="Follower" active="user.isFollower">
        <div class row>
         <table class="table table-striped" ng-repeat="division in user.dancer.results[0].divisions" ng-click="user.setSelected(lplacement.id, 'Follower', division.name) && user.userLoggedIn()">
-          <caption style="font-weight:bold;font-style:italic;">{{division.name}}</caption>
+          <caption style="font-weight:bold;font-style:italic;">{{division.name}} - {{division.follower_points}} points</caption>
+          <caption ng-show="division.followerRunningPoints" style="font-weight:bold;font-style:italic;">All-Star Qualifying - {{division.followerRunningPoints}} points</caption>
           <thead>
           <tr>
             <th>Event</th>
